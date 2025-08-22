@@ -167,8 +167,9 @@ else:
     
 
     with open(output_file, "rb") as f:
-    st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
+        st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
     
+
 
 
 
