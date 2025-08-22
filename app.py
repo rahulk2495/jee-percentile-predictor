@@ -162,10 +162,8 @@ else:
 st.markdown("""
 ### 
 ### 
-### 
-### 
-### 
-### 
+
+### ⚙️ Detailed overview of JEE Percentile Predictor  
 
 ### 📖 What Regression Means  
 Regression is a statistical method used to understand the relationship between one **outcome variable** (here: JEE Mains Percentile) and a set of **predictor variables** (like gender, class 10 math/science marks, PCM VS PCMB, and social categories).  
@@ -215,6 +213,7 @@ Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math
         
     
     
+
 
 
 
