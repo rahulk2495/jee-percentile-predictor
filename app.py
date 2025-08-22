@@ -2,7 +2,17 @@ import streamlit as st
 import pandas as pd
 
 
-
+# Sample dummy data
+sample_data = {
+    "female": [1, 0, 1, 0],
+    "tenth_math_final": [95, 88, 76, 82],
+    "tenth_sci_final": [92, 85, 79, 88],
+    "pcm": [1, 1, 0, 1],
+    "general": [0, 1, 0, 0],
+    "obc": [1, 0, 0, 0],
+    "sc": [0, 0, 1, 0]
+}
+df_sample = pd.DataFrame(sample_data)
 
 
 
@@ -124,8 +134,15 @@ st.write("Upload your Excel file with student data and get predicted JEE Mains P
 
 
 # File upload
-uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
+use_sample = st.checkbox("Use sample data instead of uploading Excel?")
 
+if use_sample:
+    df = df_sample.copy()
+    st.write("Using sample data:")
+    st.dataframe(df)
+
+else:
+uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
 if uploaded_file:
     df = pd.read_excel(uploaded_file)
 
@@ -151,4 +168,5 @@ if uploaded_file:
 
     with open(output_file, "rb") as f:
         st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
+
 
