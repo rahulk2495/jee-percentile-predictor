@@ -140,6 +140,26 @@ if use_sample:
     df = df_sample.copy()
     st.write("Using sample data:")
     st.dataframe(df)
+    
+    # Predict
+    df_pred = predict(df)
+        
+    st.write("### Predicted Percentiles")
+    st.dataframe(df_pred[["predicted_percentile"]].head(20))
+        
+    # Summary statistics
+    st.write("### Performance Summary")
+    st.write(df_pred["predicted_percentile"].describe())
+        
+            
+    # Download option
+    output_file = "predicted_scores.xlsx"
+    df_pred.to_excel(output_file, index=False)
+        
+        
+    
+    with open(output_file, "rb") as f:
+        st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
 
 else:
     uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
@@ -171,6 +191,7 @@ else:
         
     
     
+
 
 
 
