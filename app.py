@@ -139,7 +139,7 @@ use_sample = st.checkbox("Use sample data instead of uploading Excel?")
 
 if use_sample:
     df = df_sample.copy()
-    st.write("Using sample data (Your variable names should have exact name as you see in sample data):")
+    st.write("Using sample data (Your coulumn names should have exact name as you see in sample data below):")
     st.dataframe(df)
     
     # Predict
@@ -192,6 +192,7 @@ else:
         
     
     
+
 
 
 
