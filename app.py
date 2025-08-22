@@ -148,27 +148,28 @@ else:
     
         st.write("### Preview of Uploaded Data")
         st.dataframe(df.head())
+
+    # Predict
+    df_pred = predict(df)
     
-        # Predict
-        df_pred = predict(df)
+    st.write("### Predicted Percentiles")
+    st.dataframe(df_pred[["predicted_percentile"]].head(20))
     
-        st.write("### Predicted Percentiles")
-        st.dataframe(df_pred[["predicted_percentile"]].head(20))
-    
-        # Summary statistics
-        st.write("### Performance Summary")
-        st.write(df_pred["predicted_percentile"].describe())
+    # Summary statistics
+    st.write("### Performance Summary")
+    st.write(df_pred["predicted_percentile"].describe())
     
         
-        # Download option
-        output_file = "predicted_scores.xlsx"
-        df_pred.to_excel(output_file, index=False)
+    # Download option
+    output_file = "predicted_scores.xlsx"
+    df_pred.to_excel(output_file, index=False)
     
     
 
-        with open(output_file, "rb") as f:
-            st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
+    with open(output_file, "rb") as f:
+    st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
     
+
 
 
 
