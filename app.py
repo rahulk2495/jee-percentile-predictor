@@ -114,7 +114,6 @@ use_sample = st.checkbox("Use sample data instead of uploading Excel?")
 if use_sample:
     st.write("Edit the sample data below and predictions will update automatically:")
     df = st.data_editor(df_sample, num_rows="dynamic")
-    st.dataframe(df)
     
     # Predict
     df_pred = predict(df)
@@ -229,6 +228,7 @@ Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math
         
     
     
+
 
 
 
