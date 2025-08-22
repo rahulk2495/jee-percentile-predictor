@@ -66,11 +66,11 @@ st.markdown("""
 1) You can use the inbuilt dummy data in the app to see how this app works
 2) Read the "📂 Data Requirements" section below properly to create the dataset for predictions
 3) Make sure that you data is coded as written in "📂 Data Requirements" section and with exactly same coloumn names
-4) Try not to upload filed with student names and phone numbers, you can use the student IDs 
+4) Try not to upload files with student names and phone numbers or any other personal information, you can use the student IDs 
 
 ### 📂 Data Requirements
 Upload an **Excel file (.xlsx)** with columns (Make sure the columns are named as follows):
-- `female` (0 for female and 1 for male)  
+- `female` (1 for female and 0 for male)  
 - `tenth_math_final` (10th CBSE Mathematics score out of 100)  
 - `tenth_sci_final`  (10th CBSE Science score out of 100)
 - `pcm` (1 for PCM and 0 for PCMB)
@@ -86,7 +86,7 @@ Upload an **Excel file (.xlsx)** with columns (Make sure the columns are named a
 """)
 
 
-st.write("Upload your Excel file with student data and get predicted JEE Mains Percentiles.")
+st.write("Upload your Excel file or use the sample dataset with student data and get predicted JEE Mains Percentiles.")
 
 
 
@@ -97,7 +97,7 @@ use_sample = st.checkbox("Use sample data instead of uploading Excel?")
 
 if use_sample:
     df = df_sample.copy()
-    st.write("Using sample data (Your coulumn names should have exact name as you see in sample data below):")
+    st.write("Using sample data (Your coulumn names should have exact names as you see in sample data below):")
     st.dataframe(df)
     
     # Predict
@@ -160,6 +160,12 @@ else:
 # Model description
 # -------------------
 st.markdown("""
+### 
+### 
+### 
+### 
+### 
+### 
 
 ### 📖 What Regression Means  
 Regression is a statistical method used to understand the relationship between one **outcome variable** (here: JEE Mains Percentile) and a set of **predictor variables** (like gender, class 10 math/science marks, PCM VS PCMB, and social categories).  
@@ -209,6 +215,7 @@ Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math
         
     
     
+
 
 
 
