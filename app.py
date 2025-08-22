@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import joblib
 
 
 
@@ -145,15 +143,6 @@ if uploaded_file:
     st.write(df_pred["predicted_percentile"].describe())
 
     
-    # Distribution plot
-    st.subheader("📉 Distribution of Predicted JEE Percentiles")
-    fig, ax = plt.subplots()
-    ax.hist(df_pred["predicted_percentile"], bins=20, edgecolor="black", alpha=0.7)
-    ax.set_xlabel("Predicted JEE Percentiles")
-    ax.set_ylabel("Number of Students")
-    st.pyplot(fig)
-
-    
     # Download option
     output_file = "predicted_scores.xlsx"
     df_pred.to_excel(output_file, index=False)
@@ -162,3 +151,4 @@ if uploaded_file:
 
     with open(output_file, "rb") as f:
         st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
+
