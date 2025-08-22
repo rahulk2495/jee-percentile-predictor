@@ -56,52 +56,17 @@ def predict(df):
 # ------------------ STREAMLIT APP ------------------
 st.title("📊 JEE Mains Percentile Predictor (Demo)")
 
+
 # -------------------
-# Model description
+# How to use this Predictor
 # -------------------
 st.markdown("""
 
-### 📖 What Regression Means  
-Regression is a statistical method used to understand the relationship between one **outcome variable** (here: JEE Mains Percentile) and a set of **predictor variables** (like gender, class 10 math/science marks, PCM VS PCMB, and social categories).  
-In simple terms:  
-> Regression finds the **best-fitting equation** that can predict JEE Mains Percentiles from a student’s background and academic data.
-                       
-            
-### 📘 About This Model
-This model predicts **JEE Mains Percentiles** using:
-- Gender
-- Class 10th Math & Science scores (with quadratic terms)
-- PCM stream indicator (PCM VS PCMB)
-- Social category (General, OBC, SC, ST)
-
-
-            
-            
-            
-            
-            
-### 📘 Regression Equation for Predicted Percentile
-
-        
-Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math²  - 2.54 × Science + 0.0198 × Science²  + 3.02 × PCM  - 0.32 × General  - 0.87 × OBC  - 0.61 × SC
-
-
-
-### ✅ Accuracy (from regression)
-- R² = **0.428** About 43% of variation in JEE Mains Percentiles is explained by this model 
-- Adj R² = **0.368**  
-- Root MSE = **19.0** ((average prediction error is ~19 percentile))
-            
-### ✅ Accuracy (from Prediction)
-- **Accuracy = 80.2%**  
-  > Percentage of all students correctly predicted (both qualified & not qualified).  
-- **Sensitivity (Recall for Qualified) = 48.0%**  
-  > Of all students who actually qualified, how many were correctly predicted as qualified.  
-- **Specificity (Recall for Not Qualified) = 92.9%** 
-  > Of all students who did not qualify, how many were correctly predicted as not qualified.
-- **Sensitivity (true positives / qualified detected)**: 72.6%
-
-            
+### How to use this predictor?
+1) You can use the inbuilt dummy data in the app to see how this app works
+2) Read the "📂 Data Requirements" below section properly to create the dataset for predictions
+3) Make sure that you data is coded as written in "📂 Data Requirements" section and with exactly same coloumn names
+4) Try not to upload filed with student names and phone numbers, you can use the student IDs 
 
 ### 📂 Data Requirements
 Upload an **Excel file (.xlsx)** with columns (Make sure the columns are named as follows):
@@ -112,20 +77,13 @@ Upload an **Excel file (.xlsx)** with columns (Make sure the columns are named a
 - `general` (1 for general student and 0 otherwise)
 - `obc` (1 for OBC and 0 otherwise)
 - `sc`  (1 for SC and 0 otherwise)
-- `st`  (1 for ST and 0 otherwise)            
+- `st`  (1 for ST and 0 otherwise)
+
+
+### How to use this predictor?
+
+
 """)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 st.write("Upload your Excel file with student data and get predicted JEE Mains Percentiles.")
@@ -189,9 +147,69 @@ else:
     
         with open(output_file, "rb") as f:
             st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
+
+
+
+
+
+
+
+
+
+# -------------------
+# Model description
+# -------------------
+st.markdown("""
+
+### 📖 What Regression Means  
+Regression is a statistical method used to understand the relationship between one **outcome variable** (here: JEE Mains Percentile) and a set of **predictor variables** (like gender, class 10 math/science marks, PCM VS PCMB, and social categories).  
+In simple terms:  
+> Regression finds the **best-fitting equation** that can predict JEE Mains Percentiles from a student’s background and academic data.
+                       
+            
+### 📘 About This Model
+This model predicts **JEE Mains Percentiles** using:
+- Gender
+- Class 10th Math & Science scores (with quadratic terms)
+- PCM stream indicator (PCM VS PCMB)
+- Social category (General, OBC, SC, ST)
+
+
+            
+            
+            
+            
+            
+### 📘 Regression Equation for Predicted Percentile
+
+        
+Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math²  - 2.54 × Science + 0.0198 × Science²  + 3.02 × PCM  - 0.32 × General  - 0.87 × OBC  - 0.61 × SC
+
+
+
+### ✅ Accuracy (from regression)
+- R² = **0.428** About 43% of variation in JEE Mains Percentiles is explained by this model 
+- Adj R² = **0.368**  
+- Root MSE = **19.0** ((average prediction error is ~19 percentile))
+            
+### ✅ Accuracy (from Prediction)
+- **Accuracy = 80.2%**  
+  > Percentage of all students correctly predicted (both qualified & not qualified).  
+- **Sensitivity (Recall for Qualified) = 48.0%**  
+  > Of all students who actually qualified, how many were correctly predicted as qualified.  
+- **Specificity (Recall for Not Qualified) = 92.9%** 
+  > Of all students who did not qualify, how many were correctly predicted as not qualified.
+- **Sensitivity (true positives / qualified detected)**: 72.6%
+            
+""")
+
+
+
+
         
     
     
+
 
 
 
