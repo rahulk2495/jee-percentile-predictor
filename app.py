@@ -142,7 +142,7 @@ if use_sample:
     st.dataframe(df)
 
 else:
-uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
+    uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
     if uploaded_file:
         df = pd.read_excel(uploaded_file)
     
@@ -169,5 +169,6 @@ uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
         with open(output_file, "rb") as f:
             st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
     
+
 
 
