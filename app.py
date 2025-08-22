@@ -11,6 +11,7 @@ sample_data = {
     "general": [0, 1, 0, 0],
     "obc": [1, 0, 0, 0],
     "sc": [0, 0, 1, 0]
+    "st": [0, 0, 0, 1]
 }
 df_sample = pd.DataFrame(sample_data)
 
@@ -191,6 +192,7 @@ else:
         
     
     
+
 
 
 
