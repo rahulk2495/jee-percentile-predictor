@@ -15,13 +15,7 @@ sample_data = {
 }
 df_sample = pd.DataFrame(sample_data)
 
-with open("template.xlsx", "rb") as file:
-    st.download_button(
-        label="Download Excel Template",
-        data=file,
-        file_name="jee_percentile_template.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    )
+
 
 
 # ======== Replace these with your Stata regression results =========
@@ -93,9 +87,24 @@ Upload an **Excel file (.xlsx)** with columns (Make sure the columns are named a
 """)
 
 
-st.write("Upload your Excel file or use the sample dataset with student data and get predicted JEE Mains Percentiles.")
+st.write("Upload your Excel file or use the sample dataset with student data and get predicted JEE Mains Percentiles. You can also downalod the template for exxel file and put the data in that and upload the same")
+
+with open("template.xlsx", "rb") as file:
+    st.download_button(
+        label="Download Excel Template",
+        data=file,
+        file_name="jee_percentile_template.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 
 
+with open("sample.xlsx", "rb") as file:
+    st.download_button(
+        label="Download Sample Excel Data",
+        data=file,
+        file_name="sample_data.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 
 
 
@@ -220,6 +229,7 @@ Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math
         
     
     
+
 
 
 
