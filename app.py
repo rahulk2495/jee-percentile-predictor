@@ -113,6 +113,8 @@ use_sample = st.checkbox("Use sample data instead of uploading Excel?")
 
 if use_sample:
     st.write("Edit the sample data below and predictions will update automatically:")
+    st.write("When you play wround with the data, make sure you choose realistic values for 10th Math and 10th Science score as to students are expected to above 70 to get PCM in 11th:")
+     
     df = st.data_editor(df_sample, num_rows="dynamic")
     
     # Predict
@@ -228,6 +230,7 @@ Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math
         
     
     
+
 
 
 
