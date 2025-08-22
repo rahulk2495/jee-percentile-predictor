@@ -112,8 +112,8 @@ with open("sample.xlsx", "rb") as file:
 use_sample = st.checkbox("Use sample data instead of uploading Excel?")
 
 if use_sample:
-    df = df_sample.copy()
-    st.write("Using sample data (Your coulumn names should have exact names as you see in sample data below):")
+    st.write("Edit the sample data below and predictions will update automatically:")
+    df = st.data_editor(df_sample, num_rows="dynamic")
     st.dataframe(df)
     
     # Predict
@@ -229,6 +229,7 @@ Predicted Percentile = 196.20  - 6.34 × Female  - 2.53 × Math + 0.0202 × Math
         
     
     
+
 
 
 
