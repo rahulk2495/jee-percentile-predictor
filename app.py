@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import joblib
+
 
 
 
@@ -151,4 +151,5 @@ if uploaded_file:
 
     with open(output_file, "rb") as f:
         st.download_button("⬇️ Download Predictions", f, file_name="predicted_scores.xlsx")
+
 
